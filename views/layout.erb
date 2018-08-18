@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="main.css" rel="stylesheet">
+    <title>TITLE</title>
+  </head>
+  <body>
+
+
+    <ul>
+      <li>
+        <a href="/home">HOME
+        </a>
+      </li>
+
+      <% if session[:user] == nil %>
+        <li>
+          <a href="/signup">SIGNUP</a>
+        </li>
+        <li>
+          <a href="/login">LOGIN
+          </a>
+        </li>
+      <% else %>
+        <li>
+          <a href="/account">
+            <%= session[:user].name.upcase %>'s account
+          </a>
+        </li>
+        <li>
+          <a href="/logout">
+            LOG OUT</a>
+        </li>
+      <% end %>
+    </ul>
+    <%= yield%>
+
+  </body>
+</html>
